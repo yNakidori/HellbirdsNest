@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Home/Home.css";
 import Navbar from "../../components/NavBar/Navbar";
 import hero_banner from "../../assets/hero_banner.jpg";
 import Slider from "react-slick";
+import { db } from "../../services/firebase";
 
 const Home = () => {
-  const webProjects = [
-    { title: "Projeto web 1", image: "image1" },
-    { title: "Projeto web 2", image: "image2" },
-  ];
+  const [webProjects, setWebProjects] = useState([]);
+  const [systemProjects, setSystemProjects] = useState([]);
+  const [gameProjects, setGameProjects] = useState([]);
 
-  const systemProjects = [
-    { title: "Projeto sistema 1", image: "image3" },
-    { title: "Projeto sistema 2", image: "image4" },
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const webSnapshot = await db
+        .collection("projects")
+        .where("category", "==", "web")
+        .get();
+      const systemSnapshot = await db
+        .collection("projects")
+        .where("category", "==", "system")
+        .get();
+      const gameSnapshot = await db
+        .collection("projects")
+        .where("category", "==", "game")
+        .get();
 
-  const gameProjects = [
-    { title: "Projeto jogo 1", image: "image5" },
-    { title: "Projeto jogo 2", image: "image6" },
-  ];
+      setWebProjects(webSnapshot.docs.map((doc) => doc.data()));
+      setSystemProjects(systemSnapshot.docs.map((doc) => doc.data()));
+      setGameProjects(gameSnapshot.docs.map((doc) => doc.data()));
+    };
+
+    fetchProjects();
+  }, []);
 
   const settings = {
     dots: true,
@@ -39,6 +52,29 @@ const Home = () => {
         <Slider {...settings}>
           {webProjects.map((project, index) => (
             <div key={index} className="project-card">
+              <img src={project.image} alt={project.title} />
+              <h3>{project.title}</h3>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <div className="carousel-section">
+        <h2>Sistemas</h2>
+        <Slider {...settings}>
+          {systemProjects.map((project, index) => (
+            <div key={index} className="project-card">
+              <img src={project.image} alt={project.title} />
+              <h3>{project.title}</h3>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <div className="carousel-section">
+        <h2>Jogos</h2>
+        <Slider {...settings}>
+          {gameProjects.map((project, index) => (
+            <div key={index} className="project-card">
+              <img src={project.image} alt={project.title} />
               <h3>{project.title}</h3>
             </div>
           ))}
