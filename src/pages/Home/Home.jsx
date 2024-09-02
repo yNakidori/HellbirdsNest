@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../Home/Home.css";
 import Navbar from "../../components/NavBar/Navbar";
-import hero_banner from "../../assets/hero_banner.jpg";
 import hero_video from "../../assets/r6bg.mp4";
-import Slider from "react-slick";
+import SystemCarousel from "../../components/Carousel/SystemCarousel";
+import "react-multi-carousel/lib/styles.css";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../services/firebase";
 
 const Home = () => {
@@ -43,50 +44,24 @@ const Home = () => {
   };
 
   return (
-    <div className="home">
-      <Navbar />
-      <div className="hero">
-        <video
-          src={hero_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hero-video"
-        />
+    <div>
+      <div className="home">
+        <Navbar />
+        <div className="hero">
+          <video
+            src={hero_video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="hero-video"
+          />
+        </div>
       </div>
-      <div className="carousel-section">
-        <h2>Páginas Web</h2>
-        <Slider {...settings}>
-          {webProjects.map((project, index) => (
-            <div key={index} className="project-card">
-              <img src={project.image} alt={project.title} />
-              <h3>{project.title}</h3>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="carousel-section">
-        <h2>Sistemas</h2>
-        <Slider {...settings}>
-          {systemProjects.map((project, index) => (
-            <div key={index} className="project-card">
-              <img src={project.image} alt={project.title} />
-              <h3>{project.title}</h3>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="carousel-section">
-        <h2>Jogos</h2>
-        <Slider {...settings}>
-          {gameProjects.map((project, index) => (
-            <div key={index} className="project-card">
-              <img src={project.image} alt={project.title} />
-              <h3>{project.title}</h3>
-            </div>
-          ))}
-        </Slider>
+      <div className="section-2">
+        <SystemCarousel projects={webProjects} title="Web Projects" />
+        <SystemCarousel projects={systemProjects} title="System Projects" />
+        <SystemCarousel projects={gameProjects} title="Game Projects" />
       </div>
     </div>
   );

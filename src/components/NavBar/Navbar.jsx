@@ -1,36 +1,58 @@
-import React from "react";
+// Navbar.jsx
+import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../../assets/logo.png";
-import search_icon from "../../assets/search_icon.svg";
-import bell_icon from "../../assets/bell_icon.svg";
-import profile_img from "../../assets/profile_img.png";
-import caret_icon from "../../assets/caret_icon.svg";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  // Função para abrir o menu
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  // Função para fechar o menu
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <img src={logo} alt="Logo" />
         <ul>
           <li>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>New & Popular</li>
-          <li>My List</li>
-          <li>Browse by Languages</li>
+          <li>Systems</li>
+          <li>Web Pages</li>
+          <li>Games</li>
+          <li>About me</li>
+          <li>Other projects</li>
         </ul>
       </div>
       <div className="navbar-right">
-        <img src={search_icon} alt="" className="icons" />
-        <p>Children</p>
-        <img src={bell_icon} alt="" className="icons" />
-        <div className="navbar-profile">
-          <img src={profile_img} alt="" className="profile" />
-          <img src={caret_icon} alt="" />
-          <div className="dropdown">
-            <p>Sign Out</p>
-          </div>
-        </div>
+        <Avatar
+          alt="Remy Sharp"
+          src="https://avatars.githubusercontent.com/u/77468756?v=4"
+          onClick={handleClick}
+          style={{ cursor: "pointer" }} // Muda o cursor para pointer para indicar que é clicável
+        />
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <MenuItem onClick={handleClose}>Login</MenuItem>
+        </Menu>
       </div>
     </div>
   );
