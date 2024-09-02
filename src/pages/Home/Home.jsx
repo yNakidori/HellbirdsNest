@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Home/Home.css";
 import Navbar from "../../components/NavBar/Navbar";
 import hero_banner from "../../assets/hero_banner.jpg";
+import hero_video from "../../assets/r6bg.mp4";
 import Slider from "react-slick";
 import { db } from "../../services/firebase";
 
@@ -45,7 +46,14 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <div className="hero">
-        <img src={hero_banner} alt="" className="banner-img" />
+        <video
+          src={hero_video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hero-video"
+        />
       </div>
       <div className="carousel-section">
         <h2>Páginas Web</h2>
