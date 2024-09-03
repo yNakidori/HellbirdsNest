@@ -46,7 +46,6 @@ const Home = () => {
   return (
     <div>
       <div className="home">
-        <Navbar />
         <div className="hero">
           <video
             src={hero_video}
@@ -58,6 +57,7 @@ const Home = () => {
           />
         </div>
       </div>
+      <Navbar />
       <div className="section-2">
         <SystemCarousel projects={webProjects} title="Web Projects" />
         <SystemCarousel projects={systemProjects} title="System Projects" />

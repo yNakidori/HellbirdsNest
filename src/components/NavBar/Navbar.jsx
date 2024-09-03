@@ -31,29 +31,6 @@ const Navbar = () => {
           <li>Other projects</li>
         </ul>
       </div>
-      <div className="navbar-right">
-        <Avatar
-          alt="Remy Sharp"
-          src="https://avatars.githubusercontent.com/u/77468756?v=4"
-          onClick={handleClick}
-          style={{ cursor: "pointer" }} // Muda o cursor para pointer para indicar que é clicável
-        />
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-        >
-          <MenuItem onClick={handleClose}>Login</MenuItem>
-        </Menu>
-      </div>
     </div>
   );
 };
