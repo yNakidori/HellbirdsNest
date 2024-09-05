@@ -1,92 +1,32 @@
 .navbar {
   width: 100%;
-  padding: 20px 6%;
+  padding: 15px 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  color: #8f0606;
   font-size: 15px;
   font-style: normal;
-  color: #8f0606;
-  background-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.7) 10%,
-    transparent
-  );
+  position: relative;
   z-index: 1;
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.navbar-left ul {
+.navbar-list {
   display: flex;
   list-style: none;
-  gap: 15px; /* Espaçamento entre os botões */
-}
-
-.navbar-left ul li {
-  cursor: pointer;
-  padding: 10px 15px; /* Espaçamento interno dos botões */
-  background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo dos botões */
-  border-radius: 5px; /* Bordas arredondadas dos botões */
-  transition: background-color 0.3s, transform 0.3s; /* Animação suave */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar-left ul li:hover {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Cor de fundo ao passar o mouse */
-  transform: scale(1.05); /* Pequeno aumento ao passar o mouse */
-}
-
-.navbar-left ul li:not(:last-child) {
-  border-right: 1px solid rgba(255, 255, 255, 0.3); /* Divisória entre os itens */
-  padding-right: 20px; /* Espaçamento após a divisória */
-}
-
-.navbar-right {
-  display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.navbar-right .icons {
-  width: 20px;
-  cursor: pointer;
-}
-
-.navbar-right .profile {
-  border-radius: 4px;
-  width: 35px;
-}
-
-.navbar-profile {
+.navbar-list li {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 
-.navbar .dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: max-content;
-  background: #fffff0;
-  padding: 18px 22px;
-  border-radius: 2px;
-  text-decoration: underline;
-  z-index: 1;
-}
-
-.navbar-profile:hover .dropdown {
-  display: block;
+.navbar-list li:hover {
+  background-color: transparent;
+  transform: none;
 }

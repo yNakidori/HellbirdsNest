@@ -59,9 +59,7 @@ const Home = () => {
       </div>
       <Navbar />
       <div className="section-2">
-        <SystemCarousel projects={webProjects} title="Web Projects" />
-        <SystemCarousel projects={systemProjects} title="System Projects" />
-        <SystemCarousel projects={gameProjects} title="Game Projects" />
+        <SystemCarousel />
       </div>
     </div>
   );
