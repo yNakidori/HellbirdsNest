@@ -1,12 +1,12 @@
 import React from "react";
 import {
   Home,
-  Info,
-  Build,
-  TrendingUp,
+  Web,
+  Computer,
+  Lightbulb,
   ContactMail,
-  List,
-} from "@mui/icons-material"; // Exemplos de ícones
+  SportsEsports,
+} from "@mui/icons-material";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -17,16 +17,16 @@ const Navbar = () => {
           <Home /> Home
         </li>
         <li>
-          <Info /> About
+          <Web /> Web Pages
         </li>
         <li>
-          <Build /> Skills
+          <Computer /> Systems
         </li>
         <li>
-          <TrendingUp /> Projects
+          <Lightbulb /> Side Projects
         </li>
         <li>
-          <List /> Blogs
+          <SportsEsports /> Games
         </li>
         <li>
           <ContactMail /> Contact
