@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import "./SystemCarousel.css";
 
 const SystemCarousel = () => {
   const placeholderImages = [
@@ -13,26 +14,34 @@ const SystemCarousel = () => {
 
   const responsive = {
     superLargeDesktop: {
-      // Acima de 3000px
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
     desktop: {
-      // Acima de 1024px
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
     },
     tablet: {
-      // Acima de 464px
       breakpoint: { max: 1024, min: 464 },
       items: 2,
     },
     mobile: {
-      // Abaixo de 464px
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
   };
+
+  const CustomLeftArrow = ({ onClick }) => (
+    <div className="carousel-arrow carousel-arrow-left" onClick={onClick}>
+      &#8249;
+    </div>
+  );
+
+  const CustomRightArrow = ({ onClick }) => (
+    <div className="carousel-arrow carousel-arrow-right" onClick={onClick}>
+      &#8250;
+    </div>
+  );
 
   return (
     <div className="project-carousel-container">
@@ -52,6 +61,8 @@ const SystemCarousel = () => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
+        customLeftArrow={<CustomLeftArrow />}
+        customRightArrow={<CustomRightArrow />}
       >
         {placeholderImages.map((src, index) => (
           <div key={index} className="project-item">
