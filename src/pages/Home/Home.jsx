@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../components/NavBar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import hero_video from "../../assets/r6bg.mp4";
 import SystemCarousel from "../../components/Carousel/SystemCarousel";
 import "react-multi-carousel/lib/styles.css";
@@ -51,6 +52,7 @@ const Home = () => {
       <div id="contact" className="section">
         <h2>Contact</h2>
       </div>
+      <Footer />
     </div>
   );
 };
