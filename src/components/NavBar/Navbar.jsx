@@ -14,22 +14,34 @@ const Navbar = () => {
     <div className="navbar">
       <ul className="navbar-list">
         <li>
-          <Home /> Home
+          <a href="#home">
+            <Home /> Home
+          </a>
         </li>
         <li>
-          <Web /> Web Pages
+          <a href="#web-pages">
+            <Web /> Web Pages
+          </a>
         </li>
         <li>
-          <Computer /> Systems
+          <a href="#systems">
+            <Computer /> Systems
+          </a>
         </li>
         <li>
-          <Lightbulb /> Side Projects
+          <a href="#side-projects">
+            <Lightbulb /> Side Projects
+          </a>
         </li>
         <li>
-          <SportsEsports /> Games
+          <a href="#games">
+            <SportsEsports /> Games
+          </a>
         </li>
         <li>
-          <ContactMail /> Contact
+          <a href="#contact">
+            <ContactMail /> Contact
+          </a>
         </li>
       </ul>
     </div>
